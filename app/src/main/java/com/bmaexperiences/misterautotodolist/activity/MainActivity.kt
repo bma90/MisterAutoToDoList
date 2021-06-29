@@ -26,11 +26,20 @@ import com.bmaexperiences.misterautotodolist.model.UserEntity
 
     }
 
+     /**
+      * called when has connection update
+      * get the users in local or with web service
+      * @param isConnected : true = use web service / false = get local data
+      */
      override fun updateConnection(isConnected: Boolean) {
          if (isConnected) viewModel.getUsers()
          else viewModel.getLocalUsers()
      }
 
+     /**
+      * load the recycler view with the list
+      * @param users : list of users retrieve
+      */
      private fun loadRecyclerView(users : List<UserEntity>){
          if (recyclerView==null){
              recyclerView =  findViewById(R.id.user_recyclerview)
@@ -46,6 +55,10 @@ import com.bmaexperiences.misterautotodolist.model.UserEntity
          }
      }
 
+     /**
+      * go to tasks
+      * triggered when user click on an item list
+      */
      override fun onClickUser(user: UserEntity) {
          val intent = Intent(this, TasksActivity::class.java)
          intent.putExtra("idUser", user.id)

@@ -24,11 +24,20 @@ class TasksActivity : GlobalActivity() {
         })
     }
 
+    /**
+     * called when has connection update
+     * get the tasks in local or with web service
+     * @param isConnected : true = use web service / false = get local data
+     */
     override fun updateConnection(isConnected: Boolean) {
         if (isConnected) viewModel.getTasks(getIdTask())
         else viewModel.getLocalTasks(getIdTask())
     }
 
+    /**
+     * load the recycler view with the list
+     * @param tasks : list of tasks retrieve
+     */
     private fun loadRecyclerView(tasks : List<TaskEntity>){
         if (recyclerView==null){
             recyclerView =  findViewById(R.id.task_recyclerview)
@@ -44,6 +53,10 @@ class TasksActivity : GlobalActivity() {
         }
     }
 
+    /**
+     * get the id in intent
+     * @return Id of the user selected
+     */
     private fun getIdTask() : Int{
         var idUser = -1
         if (intent.hasExtra("idUser")){

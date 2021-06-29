@@ -7,6 +7,9 @@ import androidx.room.RoomDatabase
 import com.bmaexperiences.misterautotodolist.model.TaskEntity
 import com.bmaexperiences.misterautotodolist.model.UserEntity
 
+/**
+ * Create the instance of local database
+ */
 @Database(entities = [UserEntity::class, TaskEntity::class], version = 2)
 abstract class Database : RoomDatabase() {
 

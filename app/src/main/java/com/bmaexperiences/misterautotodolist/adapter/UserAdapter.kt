@@ -46,6 +46,10 @@ class UserAdapter(private val listener : UserInterface, private var users : List
         }
     }
 
+    /**
+     * generate a random color for each user
+     * @return int value of the color
+     */
     private fun getRandomColor() : Int{
         val random = Random()
         return Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))

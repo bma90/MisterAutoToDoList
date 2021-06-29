@@ -10,6 +10,8 @@ abstract class GlobalActivity : AppCompatActivity() {
 
     protected lateinit var viewModel : GlobalViewModel
 
+    private lateinit var cm : ConnectivityManager
+
     abstract fun updateConnection(isConnected : Boolean = false)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,15 +19,23 @@ abstract class GlobalActivity : AppCompatActivity() {
 
         viewModel = GlobalViewModel(application)
 
-        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val builder = NetworkRequest.Builder().addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET).build()
         cm.registerNetworkCallback(builder, internetCallBack)
         if (cm.allNetworks.isEmpty()) updateConnection()
     }
 
+    /**
+     * unregister the connectivity callback
+     */
+    override fun onStop() {
+        super.onStop()
+        cm.unregisterNetworkCallback(internetCallBack)
+    }
+
     //---------------------------------------- internet connectivity callback
     /**
-     * Allow our activity to check if Pax is connected to internet or not
+     * Allow our activity to check if the device is connected to internet or not
      */
     private val internetCallBack = object : ConnectivityManager.NetworkCallback(){
         override fun onAvailable(network: Network) {
@@ -37,6 +47,7 @@ abstract class GlobalActivity : AppCompatActivity() {
             super.onLost(network)
             updateConnection()
         }
+
     }
 
 
