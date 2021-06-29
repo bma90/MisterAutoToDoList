@@ -1,0 +1,13 @@
+com/bmaexperiences/misterautotodolist/roomdb/Database_Impl.java
+ com.bmaexperiences.misterautotodolist.roomdb.Database_Impl
+ com.bmaexperiences.misterautotodolist.roomdb.Database_Impl$1
+com/bmaexperiences/misterautotodolist/roomdb/DatabaseDao_Impl.java
+ com.bmaexperiences.misterautotodolist.roomdb.DatabaseDao_Impl
+ com.bmaexperiences.misterautotodolist.roomdb.DatabaseDao_Impl$1
+ com.bmaexperiences.misterautotodolist.roomdb.DatabaseDao_Impl$2
+ com.bmaexperiences.misterautotodolist.roomdb.DatabaseDao_Impl$3
+ com.bmaexperiences.misterautotodolist.roomdb.DatabaseDao_Impl$4
+ com.bmaexperiences.misterautotodolist.roomdb.DatabaseDao_Impl$5
+ com.bmaexperiences.misterautotodolist.roomdb.DatabaseDao_Impl$6
+com/bmaexperiences/misterautotodolist/BuildConfig.java
+ com.bmaexperiences.misterautotodolist.BuildConfig
